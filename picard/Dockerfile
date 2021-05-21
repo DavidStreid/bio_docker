@@ -1,5 +1,6 @@
 FROM centos:7
 
+# Install JDK for picard (JRE alone won't work)
 RUN yum -y install java-1.8.0-openjdk-devel
 
 ENV JAVA_HOME=/usr/lib/jvm/java-openjdk
