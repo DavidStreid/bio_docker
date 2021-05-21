@@ -10,4 +10,5 @@ RUN echo "[computational-core]" > /etc/yum.repos.d/springdale.computational.repo
   echo "gpgcheck=1" >> /etc/yum.repos.d/springdale.computational.repo && \
   echo "gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-springdale" >> /etc/yum.repos.d/springdale.computational.repo 
 
+# Installs to /usr/bin/bwa
 RUN yum -y install bwa
