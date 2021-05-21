@@ -1,4 +1,0 @@
-FROM centos:7
-
-# Install some utilities (needed to install bcl2fastq)
-RUN yum -y install rpm cpio
