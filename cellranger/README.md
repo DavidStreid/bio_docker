@@ -5,5 +5,5 @@ docker run -it --entrypoint /bin/bash cellranger
 ```
 # Run cellranger
 ```
-cellranger 		# Should be installed at /usr/local/bioinformatics/cellranger-6.0.0/bin/cellranger
+cellranger 		# Should be installed at /opt/cellranger/cellranger-6.0.0/bin/cellranger
 ```
