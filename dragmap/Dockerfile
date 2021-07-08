@@ -21,3 +21,4 @@ RUN git clone https://github.com/Illumina/DRAGMAP.git
 RUN yum -y install boost-devel
 RUN cd DRAGMAP && HAS_GTEST=0 make && HAS_GTEST=0 make install
 
+ENTRYPOINT [ "dragen-os" ]
