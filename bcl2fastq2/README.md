@@ -1,7 +1,7 @@
 # Build image and run container
 ```
-docker image build -t bcl2fastq .
-docker run -it --entrypoint /bin/bash bcl2fastq
+docker image build -t bcl2fastq2 .
+docker run -it --entrypoint /bin/bash bcl2fastq2
 ```
 # Run bcl2fastq
 ```

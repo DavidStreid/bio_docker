@@ -8,3 +8,5 @@ RUN cd / && \
   curl http://regmedsrv1.wustl.edu/Public_SPACE/litd/Public_html/pkg/bcl2fastq2-v2.20.0.422-Linux-x86_64.rpm > bcl2fastq2-v2.20.0.422-Linux-x86_64.rpm && \
   rpm2cpio bcl2fastq2-v2.20.0.422-Linux-x86_64.rpm  | cpio -idmv && \
   rm -rf bcl2fastq2-v2.20.0.422-Linux-x86_64.rpm
+
+ENTRYPOINT [ "bcl2fastq" ]
