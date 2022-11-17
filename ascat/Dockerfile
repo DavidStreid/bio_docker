@@ -23,6 +23,6 @@ RUN yum -y install git
 RUN git clone https://github.com/cancerit/alleleCount.git
 
 # Install package dependencies for alleleCount & alleleCount
-RUN yum -y install bzip2 wget pearl-core
+RUN yum -y install bzip2 wget perl-core
 RUN yum -y groupinstall 'Development Tools'
 RUN cd /alleleCount && ./setup.sh /usr/local
