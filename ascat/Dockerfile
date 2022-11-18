@@ -26,3 +26,4 @@ RUN git clone https://github.com/cancerit/alleleCount.git
 RUN yum -y install bzip2 wget perl-core
 RUN yum -y groupinstall 'Development Tools'
 RUN cd /alleleCount && ./setup.sh /usr/local
+ENV LD_LIBRARY_PATH /usr/local/lib
