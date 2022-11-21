@@ -7,21 +7,19 @@ tumor_bam <- "TODO"
 tumor_name <- "TODO"
 normal_bam <- "TODO"
 normal_name <- "TODO"
-
 gender <- "TODO"
-worksheet <- "TODO" # "myWorksheet.tsv", # A tab-separated file with specific information. Check format using ?ascat.prepareTargetedSeq
-bed_file <- "TODO"  # 
+
+# REQUIRED ASCAT FLES 
+# https://nf-co.re/sarek/usage#where-do-the-used-reference-genomes-originate-from
+ascat_allele_dir <- "/work_dir/ascat_alleles/G1000_alleles_hg38"
+allele_fname <- "G1000_alleles_hg38_chr"
+ascat_allele_prefix <- paste0(ascat_allele_dir, "/", allele_fname)
+ascat_loci_dir <- "/work_dir/ascat_loci/G1000_loci_hg38"
+loci_fname <- "G1000_loci_hg38_chr"
+ascat_loci_prefix <- paste0(ascat_loci_dir, "/", loci_fname)
 
 allelecounter_exe <- "/usr/local/bin/alleleCounter"
 genome <- "hg38"
-
-ascat.prepareTargetedSeq(
-  Worksheet = worksheet,
-  alleles.prefix = "test",
-  BED_file = bed_file,
-  allelecounter_exe = allelecounter_exe,
-  genomeVersion = genome,
-  nthreads = 8)
 
 ascat.prepareHTS(
   tumourseqfile = tumor_bam,
@@ -29,8 +27,8 @@ ascat.prepareHTS(
   tumourname = tumor_name,
   normalname = normal_name,
   allelecounter_exe = allelecounter_exe,
-  alleles.prefix = "./alleleData/Cleaned/alleleData_chr",
-  loci.prefix = "./alleleData/Cleaned/loci_chr",
+  alleles.prefix = ascat_allele_prefix,
+  loci.prefix = ascat_loci_prefix,
   gender = gender,
   genomeVersion = genome,
   nthreads = 8,
@@ -48,3 +46,15 @@ ascat.plotSegmentedData(ascat.bc)
 ascat.output = ascat.runAscat(ascat.bc, gamma=1, write_segments = T)
 QC = ascat.metrics(ascat.bc,ascat.output)
 save(ascat.bc, ascat.output, QC, file = 'ASCAT_objects.Rdata')
+
+allele_prefix <- "TODO"
+worksheet <- "TODO" # "myWorksheet.tsv", # A tab-separated file with specific information. Check format using ?ascat.prepareTargetedSeq
+bed_file <- "TODO"
+ascat.prepareTargetedSeq(
+  Worksheet = worksheet,
+  Workdir = '/',
+  alleles.prefix = allele_prefix,
+  BED_file = bed_file,
+  allelecounter_exe = allelecounter_exe,
+  genomeVersion = genome,
+  nthreads = 8)

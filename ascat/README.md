@@ -12,8 +12,9 @@ docker image build -t ascat .
 
 ## View Docker Container
 ```
-DATA_DIR=... # directory w/ data to run through ascat
-docker run -it --mount type=bind,source=${DATA_DIR},target=/data,readonly --entrypoint /bin/bash ascat
+DATA_DIR=$(pwd)   # directory w/ data to run through ascat
+docker run -it --mount type=bind,source=${DATA_DIR},target=/work_dir,readonly --entrypoint /bin/bash ascat
+Rscript work_dir/run_matched_normal.r
 ```
 
 ### DEBUG contianer
