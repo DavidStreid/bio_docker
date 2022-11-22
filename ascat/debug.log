@@ -1,0 +1,42 @@
+prepareHTS
+ascat_allele_prefix=/work_dir/ascat_alleles/G1000_alleles_hg38/G1000_alleles_hg38_chr
+Reading locis
+Done reading locis
+Multi pos start:
+Reading locis
+Done reading locis
+Multi pos start:
+
+loadData
+[1] Reading Tumor LogR data...
+[1] Reading Tumor BAF data...
+[1] Reading Germline LogR data...
+[1] Reading Germline BAF data...
+[1] Registering SNP locations...
+
+plotRawData
+[1] Plotting tumor data
+[1] Plotting germline data
+
+correctLogR
+[1] Sample tumor_sample (1/1)
+GC correlation:  25bp 0.058 ; 50bp 0.076 ; 100bp 0.081 ; 200bp 0.094 ; 500bp 0.127 ; 1kb 0.143 ; 2kb 0.157 ; 5kb 0.174 ; 10kb 0.185 ; 20kb 0.199 ; 50kb 0.217 ; 100kb 0.224 ; 200kb 0.226 ; 500kb 0.234 ; 1Mb 0.244 ;
+Short window size:  1kb
+Long window size:  100kb
+Replication timing correlation:  Bg02es 0.15 ; Bj 0.12 ; Gm06990 0.18 ; Gm12801 0.19 ; Gm12812 0.17 ; Gm12813 0.18 ; Gm12878 0.19 ; Helas3 0.13 ; Hepg2 0.17 ; Huvec 0.13 ; Imr90 0.13 ; K562 0.19 ; Mcf7 0.19 ; Nhek 0.18 ; Sknsh 0.19 ;
+Replication dataset:  Gm12801
+
+plotRawData
+[1] Plotting tumor data
+[1] Plotting germline data
+
+aspcf
+[1] Sample tumor_sample (1/1)
+
+plotSegmentedData
+
+Writing ascat output
+[1] Sample tumor_sample (1/1)
+Error in m[i, 2] : subscript out of bounds
+Calls: ascat.runAscat -> runASCAT -> make_segments
+Execution halted
