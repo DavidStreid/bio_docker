@@ -21,9 +21,11 @@ ascat_loci_prefix <- paste0(ascat_loci_dir, "/", loci_fname)
 allelecounter_exe <- "/usr/local/bin/alleleCounter"
 genome <- "hg38"
 
+chrom_names <- c(1:22,'X') # DEFAULT=c(1:22,'X')
 ascat.prepareHTS(
   tumourseqfile = tumor_bam,
   normalseqfile = normal_bam,
+  chrom_names = chrom_names,
   tumourname = tumor_name,
   normalname = normal_name,
   allelecounter_exe = allelecounter_exe,

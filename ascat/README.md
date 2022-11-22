@@ -21,3 +21,10 @@ Rscript work_dir/run_matched_normal.r
 ```
 docker run -it --entrypoint /bin/bash ascat
 ```
+
+## Required Data
+* Ascat uses loci/alleles specific to each chromosome. A pre-generated set derived from the 1000 Genomes project can be downloaded. Below are links to filtering methods for deriving the alleles and download links documented in sarek's nf-core pipeline.
+  * [Documentation](https://github.com/VanLoo-lab/ascat/tree/master/ReferenceFiles/WGS)
+  * [Download](https://nf-co.re/sarek/usage#where-do-the-used-reference-genomes-originate-from)
+    * [hg38 alleles](https://www.dropbox.com/s/uouszfktzgoqfy7/G1000_alleles_hg38.zip)
+    * [hg38 loci](https://www.dropbox.com/s/80cq0qgao8l1inj/G1000_loci_hg38.zip)
