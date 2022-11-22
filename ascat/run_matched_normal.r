@@ -47,13 +47,12 @@ ascat.output = ascat.runAscat(ascat.bc, gamma=1, write_segments = T)
 QC = ascat.metrics(ascat.bc,ascat.output)
 save(ascat.bc, ascat.output, QC, file = 'ASCAT_objects.Rdata')
 
-allele_prefix <- "TODO"
 worksheet <- "TODO" # "myWorksheet.tsv", # A tab-separated file with specific information. Check format using ?ascat.prepareTargetedSeq
 bed_file <- "TODO"
 ascat.prepareTargetedSeq(
   Worksheet = worksheet,
   Workdir = '/',
-  alleles.prefix = allele_prefix,
+  alleles.prefix = ascat_allele_prefix,
   BED_file = bed_file,
   allelecounter_exe = allelecounter_exe,
   genomeVersion = genome,
