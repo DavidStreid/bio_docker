@@ -18,10 +18,14 @@ ascat_loci_dir <- "/work_dir/ascat_loci/G1000_loci_hg38"
 loci_fname <- "G1000_loci_hg38_chr"
 ascat_loci_prefix <- paste0(ascat_loci_dir, "/", loci_fname)
 
+gc_correction_file <- "/work_dir/ascat_gc/GC_G1000_hg38.txt"
+rt_correction_file <- "/work_dir/ascat_logR/RT_G1000_hg38.txt"
+
 allelecounter_exe <- "/usr/local/bin/alleleCounter"
 genome <- "hg38"
 
 chrom_names <- c(1:22,'X') # DEFAULT=c(1:22,'X')
+is_targeted_seq <- F
 ascat.prepareHTS(
   tumourseqfile = tumor_bam,
   normalseqfile = normal_bam,
@@ -38,10 +42,18 @@ ascat.prepareHTS(
   tumourBAF_file = "Tumor_BAF.txt",
   normalLogR_file = "Germline_LogR.txt",
   normalBAF_file = "Germline_BAF.txt")
-  
-ascat.bc = ascat.loadData(Tumor_LogR_file = "Tumor_LogR.txt", Tumor_BAF_file = "Tumor_BAF.txt", Germline_LogR_file = "Germline_LogR.txt", Germline_BAF_file = "Germline_BAF.txt", gender = 'XX', genomeVersion = "hg19", isTargetedSeq=T)
+ascat.bc = ascat.loadData(
+  Tumor_LogR_file = "Tumor_LogR.txt", 
+  Tumor_BAF_file = "Tumor_BAF.txt", 
+  Germline_LogR_file = "Germline_LogR.txt", 
+  Germline_BAF_file = "Germline_BAF.txt", 
+  gender = gender, 
+  genomeVersion = genome, 
+  isTargetedSeq=is_targeted_seq)
 ascat.plotRawData(ascat.bc, img.prefix = "Before_correction_")
-ascat.bc = ascat.correctLogR(ascat.bc, GCcontentfile = "GC_file.txt", replictimingfile = "RT_file.txt")
+ascat.bc = ascat.correctLogR(ascat.bc, 
+  GCcontentfile = gc_correction_file, 
+  replictimingfile = rt_correction_file)
 ascat.plotRawData(ascat.bc, img.prefix = "After_correction_")
 ascat.bc = ascat.aspcf(ascat.bc, penalty=25)
 ascat.plotSegmentedData(ascat.bc)
